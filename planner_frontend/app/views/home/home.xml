@@ -1,0 +1,24 @@
+<Page loaded="loaded">
+    <Page.actionBar>
+        <ActionBar title="Project Planner" />
+    </Page.actionBar>
+
+    <ScrollView>
+        <StackLayout>
+            <StackLayout class="test">
+                <Label text="Item 1" />
+                <Label text="Description 1" />
+            </StackLayout>
+
+            <StackLayout class="test">
+                <Label text="Item 2" />
+                <Label text="Description 2" />
+            </StackLayout>
+
+            <StackLayout class="test">
+                <Label text="Item 3" />
+                <Label text="Description 3" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>

@@ -1,8 +1,13 @@
 {
-	"description": "NativeScript Application",
-	"license": "SEE LICENSE IN <your-license-filename>",
-	"readme": "NativeScript Application",
-	"repository": "<fill-your-repository-here>",
+	"name": "Project_Planner",
+	"version": "1.0.0",
+	"description": "A planner app targetted for cross-platform notifications and alarms.",
+	"author": "Netflux",
+	"license": "GPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Netflux/Project_Planner.git"
+	},
 	"nativescript": {
 		"id": "org.nativescript.plannerfrontend",
 		"tns-android": {
