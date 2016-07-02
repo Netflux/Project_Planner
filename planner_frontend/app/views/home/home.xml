@@ -1,24 +1,26 @@
 <Page loaded="loaded">
+    <!-- Menu Bar -->
     <Page.actionBar>
-        <ActionBar title="Project Planner" />
+        <ActionBar class="menubar" title="Project Planner">
+            <!-- Main Menu Items -->
+            <ActionItem tap="onSearch" text="Search" android.systemIcon="ic_menu_search" android.position="actionBar" />
+            <ActionItem tap="onNewEntry" text="New Entry" android.systemIcon="ic_menu_add" android.position="actionBar" />
+            <ActionItem tap="onSettings" text="Settings" android.position="popup" />
+            <ActionItem tap="onRefresh" text="Refresh" android.position="popup" />
+            <ActionItem tap="onClearAll" text="Clear All" android.position="popup" />
+            <ActionItem tap="onLoad" text="Load" android.position="popup" />
+            <ActionItem tap="onSave" text="Save" android.position="popup" />
+        </ActionBar>
     </Page.actionBar>
 
+    <!-- Main Content -->
     <ScrollView>
-        <StackLayout>
-            <StackLayout class="test">
-                <Label text="Item 1" />
-                <Label text="Description 1" />
-            </StackLayout>
-
-            <StackLayout class="test">
-                <Label text="Item 2" />
-                <Label text="Description 2" />
-            </StackLayout>
-
-            <StackLayout class="test">
-                <Label text="Item 3" />
-                <Label text="Description 3" />
-            </StackLayout>
-        </StackLayout>
+        <ListView id="listView" items="{{ entryList }}" itemTap="onViewEntry">
+            <ListView.itemTemplate>
+                <StackLayout class="entryItem" visibility="{{ isVisible ? 'visible' : 'collapse' }}">
+                    <Label text="{{ title }}" />
+                </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
     </ScrollView>
 </Page>
