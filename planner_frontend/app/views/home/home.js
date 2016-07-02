@@ -45,12 +45,12 @@ function onSearch() {
 }
 
 function onNewEntry() {
-    //navigation.toNewEntry();
+    //navigation.toNewEntryPage();
     entryList.add({title: "New Entry called.", isVisible: true}); // debug
 }
 
 function onSettings() {
-    //navigation.toSettings();
+    //navigation.toSettingsPage();
     entryList.add({title: "Settings called.", isVisible: true}); // debug
 }
 
@@ -61,8 +61,7 @@ function onRefresh() {
 
 function onViewEntry(args) {
     var entryIndex = args.index;
-    //navigation.toViewEntry(entryList.getItem(entryIndex));
-    entryList.add({title: "Entry called for " + entryIndex + ".", isVisible: true}); // debug
+    navigation.toViewEntryPage(entryList.getItem(entryIndex));
 }
 
 function onClearAll() {

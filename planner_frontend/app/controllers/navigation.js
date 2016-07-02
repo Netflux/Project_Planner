@@ -5,7 +5,11 @@ function toHomePage() {
     frameModule.topmost().navigate("views/home/home");
 }
 
-function toNewEntry() {
+function toBack() {
+    frameModule.topmost().goBack();
+}
+
+function toNewEntryPage() {
     var navigationData = {
         moduleName: "views/new-entry/new-entry",
         backStackVisible: false
@@ -14,14 +18,24 @@ function toNewEntry() {
     frameModule.topmost().navigate(navigationData);
 }
 
-function toSettings() {
+function toSettingsPage() {
     frameModule.topmost().navigate("views/settings/settings");
 }
 
-function toViewEntry(entryItem) {
+function toViewEntryPage(entryItem) {
     var navigationData = {
         moduleName: "views/view-entry/view-entry",
-        context: {entry: entryItem},
+        context: entryItem,
+        backStackVisible: false
+    };
+
+    frameModule.topmost().navigate(navigationData);
+}
+
+function toEditEntryPage(entryItem) {
+    var navigationData = {
+        moduleName: "views/edit-entry/edit-entry",
+        context: entryItem,
         backStackVisible: false
     };
 
@@ -30,7 +44,9 @@ function toViewEntry(entryItem) {
 
 module.exports = {
     toHomePage: toHomePage,
-    toNewEntry: toNewEntry,
-    toSettings: toSettings,
-    toViewEntry: toViewEntry
+    toBack: toBack,
+    toNewEntryPage: toNewEntryPage,
+    toSettingsPage: toSettingsPage,
+    toViewEntryPage: toViewEntryPage,
+    toEditEntryPage: toEditEntryPage
 }

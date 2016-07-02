@@ -1,0 +1,17 @@
+<Page loaded="loaded">
+    <!-- Menu Bar -->
+    <Page.actionBar>
+        <ActionBar class="menubar" title="Edit Entry">
+            <!-- Main Menu Items -->
+            <NavigationButton tap="onBack" text="Go Back" android.systemIcon="ic_menu_back" />
+        </ActionBar>
+    </Page.actionBar>
+
+    <!-- Main Content -->
+    <ScrollView>
+        <StackLayout>
+            <Label text="Title" />
+            <TextView text="{{ title }}" />
+        </StackLayout>
+    </ScrollView>
+</Page>
