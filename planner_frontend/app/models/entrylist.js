@@ -9,31 +9,55 @@ function EntryList() {
         var path = FileSystem.knownFolders.documents();
         var file = path.getFile("entries.txt");
 
-        // read list data from file
-        file.readText()
-            .then(function(content) {
-                // if file loads, parse list object
-                list = JSON.parse(content);
-                return true;
-            }, function(error) {
-                // if file fails to load, return false
-                return false;
-            });
+        try {
+            // read list data from file
+            file.readText()
+                .then(function(content) {
+                    // if file loads, parse list object
+                    list.empty();
+                    JSON.parse(content).forEach(function(element, index, array) {
+                        list.add(element);
+                    });
+                    return true;
+                }, function(error) {
+                    // if file fails to load, return false
+                    console.error(error);
+                    return false;
+                });
+        }
+        catch(e) {
+            console.error(e);
+            return false;
+        }
     }
 
     list.save = function() {
         var path = FileSystem.knownFolders.documents();
         var file = path.getFile("entries.txt");
+        var tempArray = [];
 
-        // write list data to file
-        file.writeText(JSON.stringify(list))
-            .then(function() {
-                // if file saves, return true
-                return true;
-            }, function(error) {
-                // if file fails to save, return false
-                return false;
-            });
+        // store all entries in temporary array
+        // stringify'ing the original array is not possible due to circular structure
+        list.forEach(function(element, index, array) {
+            tempArray.push(element);
+        });
+
+        try {
+            // write list data to file
+            file.writeText(JSON.stringify(tempArray))
+                .then(function() {
+                    // if file saves, return true
+                    return true;
+                }, function(error) {
+                    // if file fails to save, return false
+                    console.error(error);
+                    return error;
+                });
+        }
+        catch(e) {
+            console.error(e);
+            return false;
+        }
     }
 
     list.empty = function() {
