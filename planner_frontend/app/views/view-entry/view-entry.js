@@ -1,11 +1,12 @@
 // import required modules
 var Observable = require("data/observable").Observable;
 var navigation = require("../../controllers/navigation");
+
 var page;
 
 function loaded(args) {
     page = args.object;
-    page.bindingContext = page.navigationContext;
+    page.bindingContext = page.navigationContext.entryItem;
 }
 
 function onBack() {
@@ -13,7 +14,7 @@ function onBack() {
 }
 
 function onEdit() {
-    navigation.toEditEntryPage(page.navigationContext);
+    navigation.toEditEntryPage(page.navigationContext.entryIndex, page.navigationContext.entryItem);
 }
 
 module.exports = {

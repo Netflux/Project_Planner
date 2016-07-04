@@ -13,7 +13,7 @@ function EntryList() {
             // read list data from file
             file.readText()
                 .then(function(content) {
-                    // if file loads, parse list object
+                    // if file loads, empty list and parse loaded entries
                     list.empty();
                     JSON.parse(content).forEach(function(element, index, array) {
                         list.add(element);

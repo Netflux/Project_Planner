@@ -21,23 +21,6 @@ function loaded(args) {
 
     // load previous entries if they exist
     entryList.load();
-
-    // debug
-    entryList.add({
-        title: "Item 1",
-        description: "Description 1",
-        isVisible: true
-    });
-    entryList.add({
-        title: "Item 2",
-        description: "Description 2",
-        isVisible: true
-    });
-    entryList.add({
-        title: "Item 3",
-        description: "Description 3",
-        isVisible: true
-    });
 }
 
 function onSearch() {
@@ -45,8 +28,11 @@ function onSearch() {
 }
 
 function onNewEntry() {
-    //navigation.toNewEntryPage();
-    entryList.add({title: "New Entry called.", isVisible: true}); // debug
+    navigation.toEditEntryPage(-1, {
+        title: "",
+        description: "",
+        isVisible: true
+    });
 }
 
 function onSettings() {
@@ -56,12 +42,11 @@ function onSettings() {
 
 function onRefresh() {
     listViewElement.refresh();
-    entryList.add({title: "Refresh called.", isVisible: true}); // debug
 }
 
 function onViewEntry(args) {
     var entryIndex = args.index;
-    navigation.toViewEntryPage(entryList.getItem(entryIndex));
+    navigation.toViewEntryPage(entryIndex, entryList.getItem(entryIndex));
 }
 
 function onClearAll() {

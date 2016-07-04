@@ -1,9 +1,10 @@
 <Page loaded="loaded">
     <!-- Menu Bar -->
     <Page.actionBar>
-        <ActionBar class="menubar" title="Edit Entry">
+        <ActionBar class="menubar" title="Add/Edit Entry">
             <!-- Main Menu Items -->
             <NavigationButton tap="onBack" text="Go Back" android.systemIcon="ic_menu_back" />
+            <ActionItem tap="onSave" text="Save" android.systemIcon="ic_menu_save" android.position="actionBar" />
         </ActionBar>
     </Page.actionBar>
 
@@ -12,6 +13,8 @@
         <StackLayout>
             <Label text="Title" />
             <TextView text="{{ title }}" />
+                <Label text="Description" />
+                <TextView text="{{ description }}" />
         </StackLayout>
     </ScrollView>
 </Page>

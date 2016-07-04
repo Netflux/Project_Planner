@@ -12,6 +12,7 @@
     <ScrollView>
         <StackLayout>
             <Label class="header" text="{{ title }}" />
+            <Label text="{{ description }}" />
         </StackLayout>
     </ScrollView>
 </Page>
